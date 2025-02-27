@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+	<title>«ЮПК-ЛР</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+		body {
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat', sans-serif;
+		}
+
+		header {
+		padding: 10px 20px;
+		margin: .5em;
+		display: flex;
+		justify-content:space-between; /* Разделение содержимого по краям */
+		align-items: center;
+		border-bottom: 1px solid black;
+		}
+
+		.logo {
+		width: 10%;
+		height: 10%;
+		}
+
+		.menu { /* Убираем маркеры списка */
+		display: flex;
+		gap: 1.25em; /* Расстояние между пунктами меню */
+		padding: .8em;
+		text-decoration: none;
+		flex-direction: row;
+		}
+
+		.a {
+		text-decoration: none;
+		color: black;
+		cursor: pointer;
+		}
+
+		header img {
+		width: 20%; 
+		height: 20%;
+		}
+
+		.menu {
+		display: flex;
+		justify-content: space-around;
+		gap: 1em;
+		width: 25vw;
+		height: 1.8vh;
+		text-decoration: none;
+		position: static;
+		}
+
+		.bck {
+		/* width: 100%; */
+		background-size: 80%;
+		}
+
+		h1 {
+		background: #FFF2DE;
+		padding: .8em .8em;
+		}
+
+		p {
+		padding: .8em;
+		}
+
+		.hform {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: 50%;
+		background: white;
+		}
+
+		.line {
+		border: none;
+		border-bottom: 1px solid black;
+		}
+
+		.submit-form {
+		max-width: 400px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 20px;
+		background-color: #f9f9f9;
+		border-radius: 10px;
+		box-shadow: 0 2px 5px #FFF2DE;
+		border: 1px solid #FFF2DE;
+		border-bottom: none;
+		}
+
+		.submit-form:hover {
+		background-color: #f6f6f6;
+		transition: transform .2s linear;
+		}
+
+		.submit-btn {
+		display: block;
+		margin: 0 auto;
+		justify-content: center;
+		width: 30%;
+		padding: 4px 10px;
+		margin-top: 15px;
+		border: 10px solid #FFF2DE;
+		border-radius: 18px;
+		outline: none;
+		background: #FFF2DE;
+		cursor: pointer;
+		}
+
+		.submit-btn:hover {
+		box-shadow: 2px 2px 5px 2px #b6b6b6;
+		background-color: #ffe9c8;
+		border-color: #ffe9c8;
+		transition: transform .1s linear;
+		transform: scale(1.05);
+		}
+
+		.submit-btn:active {
+		transition-property: box-shadow, transform;
+		transition-duration: .3s;
+		box-shadow: none;
+		transform: none;
+		}
+
+		.submit-input {    
+		display: block;
+		margin: 0 auto;
+		align-items: center;
+		width: 80%;
+		height: 1.5em;
+		padding: 12px 20px;
+		background-color: #FFF2DE;
+		color: black;
+		border: none;
+		border-radius: 18px;
+		cursor: pointer;
+		transition: background-color 0.3s ease-in-out;
+		}
+
+		.submit-input:hover {
+		box-shadow: 1px 1px 2px 1px #b6b6b6;
+		background-color: #ffefd6;
+		border-color: #ffefd6;
+		transition: transform .3s linear;
+		transform: scale(1.01);
+		}
+
+
+		footer {
+		flex-direction: row;
+		background-color: #f9f9f9; /* Светло-серый фон */
+		padding: 1.3em;
+		display: flex;
+		justify-content:space-between; /* Центрируем содержимое по горизонтали */
+		align-items: center;
+		margin-top: 3em;
+		border-top: 1px solid black
+		}
+
+		.error {
+		color: red;
+		border: 1px solid red;
+		}
+	</style>
+	<script>
+		let input = document.querySelector('.submit-input')
+
+		function submit_btn() {
+			input.style.size = '82%'
+		}
+
+		class Applicant {
+		constructor(name, phone, email, name_company) {
+			this.name = name
+			this.email = email
+			this.phone = phone
+			this.name_company = name_company
+		}
+		} 
+
+		function submit_send() {
+			let name = document.querySelector('.submit-input-name').value
+			let email = document.querySelector('.submit-input-email').value
+			let num = document.querySelector('.submit-input-number').value
+			let name_company =  document.querySelector('.submit-input-namecomp').value
+
+			let check = false
+
+			if (check == false) {
+				if (name == "") {
+					check = false
+				} else if (email == "") {
+					check = false
+				} else if (num == "") {
+					check = false
+				} else {
+					check = true
+				}
+
+				if (check == true) {
+					let applicant = {
+						name: name,
+						email: email,
+						number: num,
+						name_company: name_company,
+					}
+					
+					//applicants.push(applicant)
+
+					//send_email()
+
+					alert('Заявка отправлена!')
+
+					send_email()
+
+					console.log('Name:', name)
+					console.log('Email:', email)
+					console.log('Phone number:', num)
+					console.log('Name company:', name_company)
+					
+				}
+			}  
+		}
+
+		function send_email() {
+			document.getElementById('submitForm').addEventListener('submit', function(event) {
+				event.preventDefault();
+					
+				const formData = new FormData(this);
+				const data = {
+					from: `${formData.get('name')} <${formData.get('email')}>`,
+					to: 'sychevdenis2009@gmail.com', // Email получателя
+					subject: 'Новое сообщение',
+					body_text: `Имя: ${formData.get('name')} Почта: ${formData.get('email')} Телефон: ${formData.get('tel')} Название компании: ${formData.get('name-company')}`
+				};
+
+				axios({
+					method: 'post',
+					url: `https://api.elasticemail.com/v2/email/send`,
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+						'X-ElasticEmail-ApiKey': 'EE1AA0E95DC1F2C32B040831FDCA57903636C351AA6CE1A220D17CF7DE88DAFE88E9F2F8F2D0A97BA326957D2C89927D'
+					},
+					params: data
+				})
+			});
+		}
+
+		let applicants = []
+
+		let submit_btn_send = document.querySelector('.submit-btn')
+		submit_btn_send.addEventListener('click', submit_send)
+		//transport@oooyupk.ru
+	</script>
+  </head>
+  <body>
+
+	<header>
+		<div><img src="Лого Upk.jpeg"></div>
+		<div class="menu">
+			<div class="a" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">О компании</div>
+			<div class="a" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'});">Заявка</div>
+			<div class="a" onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'});">Контакты</div>
+		</div>
+  	</header>
+  	
+
+  	<main>
+		<div><img src="train.jpeg" class="bck"></div>
+		<section class="section1" id="about">
+			<h1>О компании</h1>
+			<div class="line">
+				<p>Общество с ограниченной ответственностью «ЮПК-Логистические решения» (ООО «ЮПК-ЛР») специализируется на оказании транспортно-экспедиционных услуг крупным промышленным предприятиям. Мы готовы предложить конкурентоспособные ставки при одновременном обеспечении выполнения 100% объема заявок даже в условиях общего дефицита подвижного состава. Среди наших клиентов — крупные производственные предприятия, находящиеся в разных регионах нашей страны. </p>
+				<p>Начиная с 2018 года, наша компания предоставила десятки тысяч вагонов для перевозок грузов по различным направлениям. За период 2022-2024 года ООО «ЮПК-ЛР» оказало транспортно-экспедиционные услуги на общую сумму 524 812 132 рублей (без учета НДС 20%).</p>
+				<p>Мы дорожим каждым своим клиентом и приглашаем к сотрудничеству новых партнёров.</p>
+			</div>
+		</section>
+		<section class="section1" id="section1">
+			<div>
+				<h1 class="hform">Заказать обратный звонок</h1>
+				<form id="submitForm" class='submit-form'>
+
+					<p class='submit-input-label'>Имя</p>
+					<input class='submit-input submit-input-name' type='text' name="name" required placeholder='как к Вам обращаться?'>
+					
+					<p class='submit-input-label'>e-mail</p>
+					<input class='submit-input submit-input-email' type='email' name="email" required placeholder='e-mail'>
+					
+					<p class='submit-input-label'>Номер телефона</p>
+					<input inputmode="tel" class='submit-input submit-input-number' type='tel' required placeholder="+7 (XXX) XXX-XXXX" name="tel">
+
+					<p class='submit-input-label'>Название компании (не обязательно)</p>
+					<input class='submit-input submit-input-namecomp' type='text' name="name-company" placeholder='название компании'>
+
+					<button class='submit-btn submit-btn-send'>Отправить</div>
+				</form>
+			</div>
+		</section>
+	</main>
+  	
+  	<footer id="footer">
+		<div>
+			<h4>Контактная информация</h4>
+			<div>Общество с ограниченной ответственностью<br>«ЮПК - Логистические решения»<br>(ООО «ЮПК-ЛР»)<br><br>ОГРН: 1187746100838<br>ИНН/КПП: 7722434828 / 772301001</div>
+		</div>
+		<div>
+			<h4>Адрес</h4>
+			<div>109451, г. Москва, Мячковский б-р, д. 5 к.1, кв.112</div>
+			<h4>Телефон</h4>
+			<div>+7(777)777-77-77</div>
+			<h4>e-mail</h4>
+			<div>upklogistic@mail.ru</div>
+		</div>
+	</footer>
+	<script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </body>
+ </html>
