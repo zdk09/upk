@@ -1,7 +1,7 @@
 let input = document.querySelector('.submit-input')
 
 function submit_btn() {
-    input.style.size = '82%'
+    input.style.size = '82%';
 }
 
 class Applicant {
@@ -11,13 +11,17 @@ class Applicant {
        this.phone = phone
        this.name_company = name_company
    }
-} 
+}
 
 function submit_send() {
-    let name = document.querySelector('.submit-input-name').value
-    let email = document.querySelector('.submit-input-email').value
-    let num = document.querySelector('.submit-input-number').value
-    let name_company =  document.querySelector('.submit-input-namecomp').value
+
+    event.preventDefault(); 
+
+    let name = document.querySelector('[name="name"]').value;
+    let email = document.querySelector('[name="email"]').value;
+    let num = document.querySelector('[name="tel"]').value;
+    let name_company = document.querySelector('[name="name-company"]').value;
+
 
     let check = false
 
@@ -40,50 +44,37 @@ function submit_send() {
                 name_company: name_company,
             }
             
-            //applicants.push(applicant)
+            // Пример отправки email с помощью EmailJS
+            send_email(name, email, num, name_company);
 
-            //send_email()
-
-            alert('Заявка отправлена!')
-
-            send_email()
+            alert('Заявка отправлена!');
 
             console.log('Name:', name)
             console.log('Email:', email)
             console.log('Phone number:', num)
             console.log('Name company:', name_company)
-            
         }
     }  
 }
 
-function send_email() {
-    document.getElementById('submitForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-            
-        const formData = new FormData(this);
-        const data = {
-            from: `${formData.get('name')} <${formData.get('email')}>`,
-            to: 'sychevdenis2009@gmail.com', // Email получателя
-            subject: 'Новое сообщение',
-            body_text: `Имя: ${formData.get('name')} Почта: ${formData.get('email')} Телефон: ${formData.get('tel')} Название компании: ${formData.get('name-company')}`
-        };
+// Отправка письма через EmailJS
+function send_email(name, email, num, name_company) {
+    emailjs.init('waaqK1-CprNcLRQ-p'); // Замените YOUR_USER_ID на ваш настоящий User ID
 
-        axios({
-            method: 'post',
-            url: `https://api.elasticemail.com/v2/email/send`,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-ElasticEmail-ApiKey': 'EE1AA0E95DC1F2C32B040831FDCA57903636C351AA6CE1A220D17CF7DE88DAFE88E9F2F8F2D0A97BA326957D2C89927D'
-            },
-            params: data
-        })
-    });
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        phone_number: num,
+        company_name: name_company,
+    };
+
+    emailjs.send('service_bnah7is', 'template_atrbadd', templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully:', response);
+        }, function(error) {
+            console.log('Failed to send email:', error);
+        });
 }
 
-let applicants = []
-
-let submit_btn_send = document.querySelector('.submit-btn')
+let submit_btn_send = document.querySelector('.btn-warning')
 submit_btn_send.addEventListener('click', submit_send)
-//transport@oooyupk.ru
-
