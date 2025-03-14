@@ -1,71 +1,90 @@
 <!DOCTYPE html>
-<html>
-  <head>
-	<meta charset="UTF-8">
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ЮПК-ЛР</title>
     <link rel="stylesheet" href="style.css">
-	<title>«ЮПК-ЛР</title>
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
 
-	<header>
-		<div><img src="Лого Upk.jpeg"></div>
-		<div class="menu">
-			<div class="a" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">О компании</div>
-			<div class="a" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'});">Заявка</div>
-			<div class="a" onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'});">Контакты</div>
-		</div>
-  	</header>
-  	
+<header class="cover container d-flex justify-content-between align-items-center py-3 border-bottom">
+    <div>
+        <img src="src/Лого Upk.jpeg" class="img-fluid" alt="Логотип">
+    </div>
+    <nav class="menu d-flex">
+        <div class="a" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'});">О компании</div>
+        <div class="a" onclick="document.getElementById('section1').scrollIntoView({behavior: 'smooth'});">Заявка</div>
+        <div class="a" onclick="document.getElementById('footer').scrollIntoView({behavior: 'smooth'});">Контакты</div>
+    </nav>
+</header>
 
-  	<main>
-		<div><img src="train.jpeg" class="bck"></div>
-		<section class="section1" id="about">
-			<h1>О компании</h1>
-			<div class="line">
-				<p>Общество с ограниченной ответственностью «ЮПК-Логистические решения» (ООО «ЮПК-ЛР») специализируется на оказании транспортно-экспедиционных услуг крупным промышленным предприятиям. Мы готовы предложить конкурентоспособные ставки при одновременном обеспечении выполнения 100% объема заявок даже в условиях общего дефицита подвижного состава. Среди наших клиентов — крупные производственные предприятия, находящиеся в разных регионах нашей страны. </p>
-				<p>Начиная с 2018 года, наша компания предоставила десятки тысяч вагонов для перевозок грузов по различным направлениям. За период 2022-2024 года ООО «ЮПК-ЛР» оказало транспортно-экспедиционные услуги на общую сумму 524 812 132 рублей (без учета НДС 20%).</p>
-				<p>Мы дорожим каждым своим клиентом и приглашаем к сотрудничеству новых партнёров.</p>
-			</div>
-		</section>
-		<section class="section1" id="section1">
-			<div>
-				<h1 class="hform">Заказать обратный звонок</h1>
-				<form id="submitForm" class='submit-form'>
+<main class="container">
+    <div class="bck">
+    </div>
 
-					<p class='submit-input-label'>Имя</p>
-					<input class='submit-input submit-input-name' type='text' name="name" required placeholder='как к Вам обращаться?'>
-					
-					<p class='submit-input-label'>e-mail</p>
-					<input class='submit-input submit-input-email' type='email' name="email" required placeholder='e-mail'>
-					
-					<p class='submit-input-label'>Номер телефона</p>
-					<input inputmode="tel" class='submit-input submit-input-number' type='tel' required placeholder="+7 (XXX) XXX-XXXX" name="tel">
+    <section class="cover section1 my-4 p-4" id="about">
+        <h1 class="text-center bg-light p-3">О компании</h1>
+        <div class="line">
+			<p>Общество с ограниченной ответственностью «ЮПК-Логистические решения» (ООО «ЮПК-ЛР») специализируется на оказании транспортно-экспедиционных услуг крупным промышленным предприятиям. Мы готовы предложить конкурентоспособные ставки при одновременном обеспечении выполнения 100% объема заявок даже в условиях общего дефицита подвижного состава. Среди наших клиентов — крупные производственные предприятия, находящиеся в разных регионах нашей страны. </p>
+			<p>Начиная с 2018 года, наша компания предоставила десятки тысяч вагонов для перевозок грузов по различным направлениям. За период 2022-2024 года ООО «ЮПК-ЛР» оказало транспортно-экспедиционные услуги на общую сумму 524 812 132 рублей (без учета НДС 20%).</p>
+			<p>Мы дорожим каждым своим клиентом и приглашаем к сотрудничеству новых партнёров.</p>
+        </div>
+    </section>
 
-					<p class='submit-input-label'>Название компании (не обязательно)</p>
-					<input class='submit-input submit-input-namecomp' type='text' name="name-company" placeholder='название компании'>
+    <section class="section1 my-4 p-4" id="section1">
+        <div>
+            <h1 class="hform text-center">Заказать обратный звонок</h1>
+            <form id="submitForm" class="submit-form mx-auto">
+                <div class="mb-3">
+                    <label class="form-label">Имя</label>
+                    <input type="text" class="form-control" name="name" required placeholder="Как к Вам обращаться?">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-control" name="email" required placeholder="E-mail">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Номер телефона</label>
+                    <input type="tel" class="form-control" required placeholder="+7 (XXX) XXX-XXXX" name="tel">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Название компании (не обязательно)</label>
+                    <input type="text" class="form-control" name="name-company" placeholder="Название компании">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Отправить</button>
+            </form>
+        </div>
+    </section>
+</main>
 
-					<button class='submit-btn submit-btn-send'>Отправить</div>
-				</form>
-			</div>
-		</section>
-	</main>
-  	
-  	<footer id="footer">
-		<div>
-			<h4>Контактная информация</h4>
-			<div>Общество с ограниченной ответственностью<br>«ЮПК - Логистические решения»<br>(ООО «ЮПК-ЛР»)<br><br>ОГРН: 1187746100838<br>ИНН/КПП: 7722434828 / 772301001</div>
-		</div>
-		<div>
-			<h4>Адрес</h4>
-			<div>109451, г. Москва, Мячковский б-р, д. 5 к.1, кв.112</div>
-			<h4>Телефон</h4>
-			<div>+7(777)777-77-77</div>
-			<h4>e-mail</h4>
-			<div>upklogistic@mail.ru</div>
-		</div>
-	</footer>
-	<script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src="script.js"></script>
-  </body>
- </html>
+<footer id="footer" class="container py-4 border-top">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Контактная информация</h4>
+            <p>Общество с ограниченной ответственностью «ЮПК - Логистические решения» (ООО «ЮПК-ЛР»)</p>
+            <p>ОГРН: 1187746100838</p>
+            <p>ИНН/КПП: 7722434828 / 772301001</p>
+        </div>
+        <div class="col-md-6">
+            <h4>Адрес</h4>
+            <p>109451, г. Москва, Мячковский б-р, д. 5 к.1, кв.112</p>
+            <h4>Телефон</h4>
+            <p>+7(777)777-77-77</p>
+            <h4>E-mail</h4>
+            <p>upklogistic@mail.ru</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script src="script.js"></script>
+
+
+</body>
+</html>
