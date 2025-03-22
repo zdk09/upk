@@ -129,6 +129,14 @@ main p {
   transform: scale(1.01);
 }
 
+.menu-toggle {
+  display: none; /* Скрыть кнопку по умолчанию */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   body {
     font-size: 14px;
@@ -153,8 +161,23 @@ main p {
 
 @media (max-width: 576px) {
   .menu {
-    display: none;
+    display: none; /* Скрыть меню на мобильных устройствах */
+    flex-direction: column; /* Вертикальное расположение элементов меню */
+    position: absolute; /* Позиционирование для выпадающего меню */
+    top: 60px; /* Позиция под заголовком */
+    left: 0;
+    right: 0;
+    background-color: white; /* Фон меню */
+    border: 1px solid #ccc; /* Граница меню */
+    z-index: 1000; /* Поверх других элементов */
   }
+  .menu-toggle {
+    display: block; /* Показать кнопку на мобильных устройствах */
+  }
+  .menu.active {
+    display: flex; /* Показать меню, когда оно активно */
+  }
+
   .submit-btn {
     font-size: 12px;
     padding: 4px 5px;

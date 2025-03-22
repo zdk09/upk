@@ -15,6 +15,15 @@ fetch("config.json")
     })
     .catch(error => console.error("Ошибка загрузки конфигураци:", error));
 
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', function() {
+        menu.classList.toggle('active'); // Переключение класса для отображения меню
+    });
+});
+
 let input = document.querySelector('.submit-input')
 
 
