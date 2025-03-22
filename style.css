@@ -17,6 +17,10 @@ header {
   border-bottom: 1px solid black;
 }
 
+footer {
+  background-color:#f3f3f3; 
+}
+
 .a {
   text-decoration: none;
   color: black;
@@ -132,9 +136,40 @@ main p {
 .menu-toggle {
   display: none; /* Скрыть кнопку по умолчанию */
   background: none;
-  border: none;
+  padding: 0px 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
   font-size: 24px;
   cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: #f3f3f3;
+  transition: transform .3s linear;
+}
+
+.menu-show {
+  box-sizing: border-box;
+  padding: 48px 40px 38px;
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.over-bck {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .5;
 }
 
 @media (max-width: 1024px) {
@@ -145,7 +180,7 @@ main p {
 
 @media (max-width: 768px) {
   .logo {
-    width: 30vw;
+    width: 10vw;
   }
   header {
     font-size: 12px;
@@ -163,10 +198,11 @@ main p {
   .menu {
     display: none; /* Скрыть меню на мобильных устройствах */
     flex-direction: column; /* Вертикальное расположение элементов меню */
-    position: absolute; /* Позиционирование для выпадающего меню */
+    position: relative; /* Позиционирование для выпадающего меню */
     top: 60px; /* Позиция под заголовком */
-    left: 0;
+    left: 10px;
     right: 0;
+    padding: 5px;
     background-color: white; /* Фон меню */
     border: 1px solid #ccc; /* Граница меню */
     z-index: 1000; /* Поверх других элементов */

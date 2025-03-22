@@ -106,5 +106,11 @@ function send_email(name, email, phone, name_company) {
 let submit_btn_send = document.querySelector('.submit-btn')
 submit_btn_send.addEventListener('click', submit_send)
 
+let menu = document.querySelector('.menu')
+let menu_btn = document.querySelector('.menu-btn')
+menu_btn.addEventListener('click', function() {
+    
+})
+
 //transport@oooyupk.ru
 
