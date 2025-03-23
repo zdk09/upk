@@ -118,12 +118,6 @@ menu_btn_open.addEventListener('click', function() {
 let menu_btn_close = document.querySelector('.menu-btn-close')
 menu_btn_close.addEventListener('click', function() {
     const menu = document.getElementById('menu');
-    anime({
-        targets: '.menu',
-        translateX: 0.1*width,
-        duration: 1000,
-        easing: 'linear'
-    })
     menu.classList.remove('open');
     menu.classList.add('close');
     console.log('close')
