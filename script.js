@@ -114,7 +114,7 @@ menu_btn_open.addEventListener('click', function() {
     menu.classList.remove('close');
     menu.classList.add('active');
     // anime({
-    //     targets: '.shape',
+    //     targets: '.menu',
     //     keyframes: [
             
     //     ],
