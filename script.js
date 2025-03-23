@@ -15,17 +15,18 @@ fetch("config.json")
     })
     .catch(error => console.error("Ошибка загрузки конфигураци:", error));
 
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
 
-    menuToggle.addEventListener('click', function() {
-        menu.classList.toggle('active'); // Переключение класса для отображения меню
-    });
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     const menuToggle = document.querySelector('.menu-toggle');
+//     const menu = document.querySelector('.menu');
+
+//     menuToggle.addEventListener('click', function() {
+//         menu.classList.toggle('active'); // Переключение класса для отображения меню
+//     });
+// });
+
 
 let input = document.querySelector('.submit-input')
-
 
 function submit_btn() {
     input.style.size = '82%'
@@ -106,10 +107,28 @@ function send_email(name, email, phone, name_company) {
 let submit_btn_send = document.querySelector('.submit-btn')
 submit_btn_send.addEventListener('click', submit_send)
 
-let menu = document.querySelector('.menu')
-let menu_btn = document.querySelector('.menu-btn')
-menu_btn.addEventListener('click', function() {
-    
+
+let menu_btn_open = document.querySelector('.menu-btn-open')
+menu_btn_open.addEventListener('click', function() {
+    const menu = document.getElementById('menu');
+    menu.classList.remove('close');
+    menu.classList.add('active');
+    // anime({
+    //     targets: '.shape',
+    //     keyframes: [
+            
+    //     ],
+    //     duration: 1000,
+    //     easing: 'linear'
+    // })
+})
+
+let menu_btn_close = document.querySelector('.menu-btn-close')
+menu_btn_close.addEventListener('click', function() {
+    const menu = document.getElementById('menu');
+    menu.classList.remove('open');
+    menu.classList.add('close');
+    console.log('close')
 })
 
 //transport@oooyupk.ru
