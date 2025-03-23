@@ -63,7 +63,11 @@ main p {
   justify-content: center;
   margin: 0 auto;
   width: 50%;
-  background: white;
+  background: none;
+}
+
+footer {
+  padding-top: 5px;
 }
 
 .submit-form {
@@ -230,6 +234,7 @@ main p {
   .submit-btn {
     font-size: 12px;
     padding: 4px 5px;
+    width: 90px;
   }
   .submit-form {
     height: 500px;
