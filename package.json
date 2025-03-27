@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "package.json",
     "version": "1.0.0",
@@ -20,4 +21,28 @@
       "url": "https://github.com/zdk09/upk/issues"
     },
     "homepage": "https://github.com/zdk09/upk#readme"
+=======
+{
+    "name": "package.json",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/zdk09/upk.git"
+    },
+    "keywords": [
+      "node.js"
+    ],
+    "author": "",
+    "license": "",
+    "type": "git",
+    "bugs": {
+      "url": "https://github.com/zdk09/upk/issues"
+    },
+    "homepage": "https://github.com/zdk09/upk#readme"
+>>>>>>> f41b005e4916dbe01250fcfb9177b6ea8fa05421
   }
